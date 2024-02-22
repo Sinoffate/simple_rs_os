@@ -2,6 +2,7 @@
 #![no_main] // Disable all Rust-level entry points
 
 use core::panic::PanicInfo;
+mod vga_buffer;
 
 static HELLO: &[u8] = b"Hello World!";
 
@@ -9,14 +10,7 @@ static HELLO: &[u8] = b"Hello World!";
 // w/o this attribute, the function would generate a name like _ZN4core3ptr18
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    let vga_buffer = 0xb8000 as *mut u8;
-
-    for (i, &byte) in HELLO.iter().enumerate() {
-        unsafe {
-            *vga_buffer.offset(i as isize * 2) = byte;
-            *vga_buffer.offset(i as isize * 2 + 1) = 0xb;
-        }
-    }
+    vga_buffer::print_something();
 
     loop {}
 }
@@ -26,5 +20,4 @@ pub extern "C" fn _start() -> ! {
 fn panic(_info: &PanicInfo) -> ! {
     loop {}
 }
-
 
