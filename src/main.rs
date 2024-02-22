@@ -6,7 +6,7 @@ mod vga_buffer;
 
 static HELLO: &[u8] = b"Hello World!";
 
-// Disable name mangling to ensure that the Rust compiler really outputs a function with teh name _start
+// Disable name mangling to ensure that the Rust compiler really outputs a function with the name _start
 // w/o this attribute, the function would generate a name like _ZN4core3ptr18
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
