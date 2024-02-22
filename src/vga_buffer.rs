@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-#[derive(Debug, Clone, Copy, ParitalEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Color {
     Black = 0,
@@ -30,7 +30,7 @@ impl ColorCode {
     }
 }
 
-#[derive(Debug, Clone, Copy, ParitalEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(C)]
 struct ScreenChar {
     ascii_character: u8,
