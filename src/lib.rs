@@ -10,7 +10,7 @@ pub mod interrupts;
 
 use core::panic::PanicInfo;
 
-pub fn ini() {
+pub fn init() {
     interrupts::init_idt();
 }
 
