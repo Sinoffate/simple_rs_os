@@ -11,8 +11,15 @@ use simple_rs_os::println;
 pub extern "C" fn _start() -> ! {
     println!("Hello World{}", "!");
 
+    simple_rs_os::init();
+
+    // invoke a breakpoint exception
+    x86_64::instructions::interrupts::int3();
+
     #[cfg(test)]
     test_main();
+
+    println!("It did not crash!");
 
     loop {}
 }
