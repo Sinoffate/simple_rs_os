@@ -1,5 +1,3 @@
-use pc_keyboard::layouts;
-use pc_keyboard::DecodedKey;
 use x86_64::structures::idt::{InterruptDescriptorTable, InterruptStackFrame};
 use crate::println;
 use crate::print;
